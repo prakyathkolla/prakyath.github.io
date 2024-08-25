@@ -281,6 +281,16 @@ article p {
   margin: 0;
   padding: 0.3rem 0;
   font-size: 1rem;
+  text-align: center;
+}
+
+.project__links {
+  display: flex;
+  justify-content: space-between; /* Distributes space evenly between buttons */
+  gap: 10px; /* Adds space between buttons */
+  width: 100%;
+  padding: 0.5rem 0;
+  background-color: var(--bg-alt); /* Optional: to match the card background */
 }
 
 button {
@@ -289,14 +299,15 @@ button {
   border: none;
   border-radius: 1rem;
   padding: 0.5rem;
-
+  width: 100%;
 }
 
 .btn {
   border-radius: 0;
   height: 3rem;
-  flex-basis: 50%;
+  flex-grow: 1; /* Ensures buttons grow evenly within the container */
   font-weight: 600;
+  margin: 0 5px; /* Adds space on the left and right of each button */
 }
 
 .arrow {
