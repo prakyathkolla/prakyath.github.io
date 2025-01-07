@@ -73,6 +73,9 @@
     background-image: var(--tl-1);
   }
 }
+
+/* ANIMATE TOP RIGHT */
+
 .animate-top-right {
   animation-name: top-right;
 }
@@ -162,6 +165,7 @@
     background-image: var(--br-1);
   }
 }
+
 /* ANIMATE BOTTOM LEFT */
 
 .animate-bottom-left {
@@ -207,3 +211,25 @@
     background-image: var(--bl-1);
   }
 }
+
+/* Project Transition Animations */
+.project {
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.project.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Arrow Hover Effects */
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+

@@ -12,20 +12,35 @@ body {
   width: 100%;
   margin: 0;
   -webkit-tap-highlight-color: transparent;
+  background-image: url(/images/education\ banner.png);
+  background-size:cover;
+  background-position: center;
 }
 
 h1,
 h2,
+h4,
 h5,
 p {
   margin: 0;
+}
+
+h1{
+  color: crimson;
+}
+
+h4{
+  color: darkmagenta;
+}
+
+p{
+  color:sienna;
 }
 
 .icon {
   height: 2rem;
   width: 2rem;
   margin: 0 0.5rem;
-
 }
 
 /* HERO */
@@ -36,6 +51,8 @@ p {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+  width: 90%;
+  max-width: 600px;
 }
 
 #hero__animation {
@@ -47,24 +64,27 @@ p {
   width: 25rem;
   max-height: 100vh;
   max-width: 100vw;
+  margin: 0 auto;
+  position: relative;
 }
 
 #hero__animation__img {
   background-image: var(--tl-1);
-  height: 60%;
-  width: 80%;
+  height: 50%;
+  width: 100%;
   background-position: center;
   background-size: cover;
   position: absolute;
-  right: -1%;
-
+  left: 50%;
+  transform: translateX(-50%);
+  padding-top: 20%;
+  margin-top: 10%;
 }
-
 
 /* GRID COMMON STYLES */
 
 #grid {
-  position: absolute;
+  position: fixed;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
@@ -77,21 +97,50 @@ p {
 #grid__tr__btn,
 #grid__bl__btn,
 #grid__br__btn {
-  height: 18.75rem;
-  width: 18.75rem;
+  height: 15vmin;
+  width: 15vmin;
+  max-height: 160px;
+  max-width: 160px;min-height: 90px;
+  min-width: 90px;
   background: var(--bg);
   color: var(--text);
   border: var(--border);
   position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   text-align: center;
-  font-weight: 800;
-  font-size: 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
   z-index: 100;
   border-radius: 50%;
   transition: transform 0.2s ease-in-out;
+  padding: 1rem;
+}
+
+#grid__tl__btn {
+  top: 0;
+  left: 0;
+  transform: translate(-30%, -30%) rotate(-45deg);
+}
+
+#grid__tr__btn {
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%) rotate(45deg);
+}
+
+#grid__bl__btn {
+  bottom: 0;
+  left: 0;
+  transform: translate(-30%, 30%) rotate(45deg);
+}
+
+#grid__br__btn {
+  bottom: 0;
+  right: 0;
+  transform: translate(30%, 30%) rotate(-45deg);
 }
 
 #grid__tl__content,
@@ -127,12 +176,6 @@ p {
 
 /* TOP LEFT CORNER */
 
-#grid__tl__btn {
-  top: -11.5rem;
-  left: -11.5rem;
-  transform: rotate(-45deg);
-}
-
 #grid__tl__content {
   width: 30vw;
   top: 10vh;
@@ -150,7 +193,7 @@ article {
   margin: 1rem;
   width: 22rem;
   min-width: 22rem;
-
+  background-color: grey;
 }
 
 article h2 {
@@ -162,9 +205,20 @@ article p {
   padding-bottom: 0.3rem;
 }
 
-article h2,
+.except p {
+  padding-bottom: 0.3rem;
+  text-align: justify;
+  color: midnightblue;
+}
+
+article h2 {
+  color: brown;
+}
+
 article p {
-  color: #333;
+  color: midnightblue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: medium;
 }
 
 .cards {
@@ -175,8 +229,6 @@ article p {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 
 .cards__content__text {
@@ -186,12 +238,6 @@ article p {
 }
 
 /* TOP RIGHT CORNER */
-
-#grid__tr__btn {
-  top: -11.5rem;
-  right: -11.5rem;
-  transform: rotate(45deg);
-}
 
 #grid__tr__content {
   width: 30vw;
@@ -214,12 +260,17 @@ article p {
   gap: 0.2rem;
   margin: 0;
   width: fit-content;
+  background-color: grey;
 }
 
 .experience__skill div {
   display: flex;
   align-items: center;
   width: 13.5rem;
+}
+
+.experience__skill h2 {
+  color: brown;
 }
 
 .experience__skill div img {
@@ -238,6 +289,8 @@ article p {
 .experience__skill div h2,
 .experience__skill div p {
   font-size: 0.8rem;
+  color: midnightblue;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
 .experience__skill div div {
@@ -246,51 +299,64 @@ article p {
 
 /* BOTTOM LEFT CORNER */
 
-#grid__bl__btn {
-  bottom: -11.5rem;
-  left: -11.5rem;
-  transform: rotate(45deg);
-}
-
 #grid__bl__content {
   width: 15rem;
   bottom: 15vh;
   left: 0;
-
   transform: translateX(-100vw) translateY(100vh);
 }
 
+/* Updated Project Styles */
+#grid__bl__content__projects {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
 .project {
-  width: 70%;
-  display: flex;
-  flex-wrap: wrap;
+  display: none;
+  width: 100%;
+  max-width: 300px;
+  flex-direction: column;
   border-radius: 1rem;
   overflow: hidden;
-  margin: auto auto 0.5rem;
+  margin: 0.5rem auto;
   border: var(--border);
   background: var(--bg-alt);
+  transition: all 0.3s ease;
 
+}
+
+.project.active {
+  display: flex;
 }
 
 .project__img {
   width: 100%;
+  height: 200px;
+  object-fit:fill;
 }
 
 .project__title {
   width: 100%;
   margin: 0;
-  padding: 0.3rem 0;
-  font-size: 1rem;
-  text-align: center;
+  padding: 0rem;
+  font-size: 1.2rem;
+  text-align:center;
+  color: var(--text);
+  color:teal;
+
 }
 
 .project__links {
   display: flex;
-  justify-content: space-between; /* Distributes space evenly between buttons */
-  gap: 10px; /* Adds space between buttons */
+  justify-content: space-between;
+  gap: 10px;
   width: 100%;
   padding: 0.5rem 0;
-  background-color: var(--bg-alt); /* Optional: to match the card background */
+  background-color: var(--bg-alt);
 }
 
 button {
@@ -305,24 +371,49 @@ button {
 .btn {
   border-radius: 0;
   height: 3rem;
-  flex-grow: 1; /* Ensures buttons grow evenly within the container */
+  flex-grow: 1;
   font-weight: 600;
-  margin: 0 5px; /* Adds space on the left and right of each button */
+  margin: 0 5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--bg);
   border: var(--border);
-  width: 3rem;
-  height: 2rem;
-  margin: 0;
-  padding: 0.2rem 0;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.prev-arrow {
+  left: 0;
+}
+
+.next-arrow {
+  right: 0;
+}
+
+.arrow:hover {
+  background: var(--bg-alt);
 }
 
 .btn,
 .arrow {
-  background: rgb(245, 245, 245);
-  color: #333;
-  transition: all 300ms ease;
+  background: black;
+  color: white;
+  transition: 0.3s ease;
 }
 
 .btn:active,
@@ -335,15 +426,10 @@ button {
 .btn:hover,
 .arrow:hover {
   cursor: pointer;
+  transform: scale(1.05);
 }
 
 /* BOTTOM RIGHT CORNER */
-
-#grid__br__btn {
-  bottom: -11.5rem;
-  right: -11.5rem;
-  transform: rotate(-45deg);
-}
 
 #grid__br__content {
   bottom: 0;
@@ -360,13 +446,16 @@ button {
 
 .contact-text {
   color: var(--text);
+  color: white;
 }
 
 .btn-contact {
   border: var(--border);
   border-radius: 2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
 
 #grid__ml__btn {
   bottom: -11.5rem;
@@ -378,33 +467,160 @@ button {
   width: 15rem;
   bottom: 15vh;
   left: 0;
-
   transform: translateX(-100vw) translateY(100vh);
 }
 
-
-
 .resume {
-
   border: 1px solid black;
   border-radius: 15px;
-
-
 }
 
 .dwn {
-
   background-color: black;
   color: white;
   border-radius: 25px;
   padding: 5px;
-
 }
 
 .dwn:hover {
-
   border: 1px solid black;
   background-color: white;
   color: black;
-
 }
+
+.btn-contact {
+  background-color: black;
+  transition: width 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-contact:hover {
+  width: 150px;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 1024px) {
+  #grid__tl__btn,
+  #grid__tr__btn,
+  #grid__bl__btn,
+  #grid__br__btn {
+    height: 14vmin;
+    width: 14vmin;
+    max-height: 140px;
+    max-width: 140px;
+    font-size: 0.95rem;
+  }
+
+  #hero__animation {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  .experience__skill {
+    padding: 1rem;
+  }
+
+  .project {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  #grid__tl__btn,
+  #grid__tr__btn,
+  #grid__bl__btn,
+  #grid__br__btn {
+    height: 13vmin;
+    width: 13vmin;
+    max-height: 120px;
+    max-width: 120px;
+    font-size: 0.9rem;
+    min-height: 85px;
+    min-width: 85px;
+  }
+
+  #hero__animation {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  #hero h1 {
+    font-size: 2rem;
+  }
+
+  #hero h4, #hero p {
+    font-size: 1rem;
+  }
+
+  .experience__skill {
+    padding: 0.8rem;
+  }
+
+  .experience__skill div h2,
+  .experience__skill div p {
+    font-size: 0.7rem;
+  }
+
+  .project {
+    width: 100%;
+  }
+
+  .btn {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #grid__tl__btn,
+  #grid__tr__btn,
+  #grid__bl__btn,
+  #grid__br__btn {
+    height: 12vmin;
+    width: 12vmin;
+    max-height: 100px;
+    max-width: 100px;
+    min-height: 80px;
+    min-width: 80px;
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+
+  #hero__animation {
+    height: 15rem;
+    width: 15rem;
+  }
+
+  #hero h1 {
+    font-size: 1.5rem;
+  }
+
+  #hero h4, #hero p {
+    font-size: 0.9rem;
+  }
+
+  .experience__skill {
+    padding: 0.6rem;
+  }
+
+  .experience__skill div h2,
+  .experience__skill div p {
+    font-size: 0.6rem;
+  }
+
+  .btn {
+    font-size: 0.7rem;
+    padding: 0.3rem;
+  }
+
+  #grid__br__content div {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn-contact {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+}
+
